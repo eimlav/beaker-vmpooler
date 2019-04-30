@@ -283,7 +283,8 @@ module Beaker
         response = http.request(request)
 
         parsed = parse_response(response)
-
+        print response
+        print response.body
         raise "Response from #{hostname} indicates disk was not added" if !parsed['ok']
 
       rescue NameError, RuntimeError, Errno::EINVAL, Errno::ECONNRESET, EOFError,
